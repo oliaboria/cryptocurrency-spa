@@ -5,7 +5,14 @@
 .stylelintrc
 package-lock.json
 coverage/
-clientlib/
+public/
+ui-examples/
 dynamicObject.groovy
 sonar-project.properties
 analytic.js
+*.svg
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
