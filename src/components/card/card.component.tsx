@@ -2,8 +2,13 @@ import React from 'react';
 
 import './_card.scss';
 
-const Card: React.FC = () => {
-    return <div className="card">card</div>;
+type PropTypes = {
+    children?: React.ReactNode;
+};
+
+const Card: React.FC<PropTypes> = (props: PropTypes) => {
+    const { children } = props;
+    return <div className="card">{children}</div>;
 };
 
 export default Card;

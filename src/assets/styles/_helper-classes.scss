@@ -9,3 +9,16 @@
         margin-left: auto;
     }
 }
+
+.scrollable {
+    overflow-x: auto;
+}
+
+.clickable {
+    color: blue;
+    cursor: pointer;
+}
+
+.underline {
+    text-decoration: underline;
+}

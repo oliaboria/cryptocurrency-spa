@@ -1,0 +1,25 @@
+@import 'src/assets/styles/style-import';
+
+.currency-table {
+    margin: 0 auto;
+
+    th, td {
+        min-width: 292px;
+        padding: 10px 15px;
+        text-align: left;
+    }
+
+    td {
+        padding: 15px;
+    }
+
+    th {
+        background-color: $color-grey-100;
+    }
+
+    tr {
+        border-bottom: 1px solid $color-grey-100;
+    }
+
+
+}
