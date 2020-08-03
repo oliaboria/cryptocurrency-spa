@@ -1,0 +1,17 @@
+@import 'src/assets/styles/style-import';
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 15px;
+
+    div {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 3px;
+    }
+}
+
+.table-wrapper {
+    height: calc(100vh - #{$pagination-height} - #{$pagination-height});
+}

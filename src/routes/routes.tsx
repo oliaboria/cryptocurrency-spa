@@ -1,24 +1,17 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-} from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import CoinOverview from './coinOverview';
 import Home from './home';
 
-const AppRouter: React.FC = () => {
+const Routes: React.FC = () => {
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/coin/:coinId" component={CoinOverview} />
-                <Redirect from="*" to="/" />
-            </Switch>
-        </Router>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/coin/:coinId" component={CoinOverview} />
+            <Redirect from="*" to="/" />
+        </Switch>
     );
 };
 
-export default AppRouter;
+export default Routes;

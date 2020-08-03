@@ -1,0 +1,15 @@
+@import 'src/assets/styles/style-import';
+
+.search {
+    input {
+        width: 100%;
+        height: 35px;
+        padding: 3px 20px;
+        border: 1px solid $search-border-color;
+        border-radius: 5px;
+
+        @include tablet {
+            min-width: 350px;
+        }
+    }
+}
