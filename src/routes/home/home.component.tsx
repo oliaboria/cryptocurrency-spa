@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
 import { gql, useQuery } from '@apollo/client';
+import React from 'react';
+
 const GET_MARKET = gql`
     query PageAssets {
         assets(sort: [{ marketCapRank: ASC }], page: { limit: 25 }) {
@@ -23,9 +23,10 @@ const GET_MARKET = gql`
     }
 `;
 
-function App() {
-    const { loading, error, data } = useQuery(GET_MARKET);
-    return loading ? <p>Loading...</p> : <div>{JSON.stringify(data)}</div>;
-}
+const Home: React.FC = () => {
+    const { loading, data } = useQuery(GET_MARKET);
 
-export default App;
+    return loading ? <p>Loading...</p> : <div>{JSON.stringify(data)}</div>;
+};
+
+export default Home;
