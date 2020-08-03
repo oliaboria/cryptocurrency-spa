@@ -1,0 +1,20 @@
+@import 'src/assets/styles/style-import';
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    margin: 20px auto;
+    border: 4px solid $spinner-color;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

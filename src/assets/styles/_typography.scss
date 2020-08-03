@@ -6,7 +6,17 @@
     line-height: 24px;
 }
 
+@mixin h2-heading {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+}
+
 /* layout variables */
 %logo-font {
     @include h1-heading;
+}
+
+%something-went-wrong {
+    @include h2-heading;
 }
