@@ -1,6 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import React from 'react';
 
+import Card from '../../components/card';
+
 const GET_MARKET = gql`
     query PageAssets {
         assets(sort: [{ marketCapRank: ASC }], page: { limit: 25 }) {
@@ -26,7 +28,7 @@ const GET_MARKET = gql`
 const Home: React.FC = () => {
     const { loading, data } = useQuery(GET_MARKET);
 
-    return loading ? <p>Loading...</p> : <div>{'data'}</div>;
+    return <Card />;
 };
 
 export default Home;

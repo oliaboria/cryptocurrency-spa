@@ -7,7 +7,9 @@ import Routes from './routes';
 const App: React.FC = () => (
     <Router>
         <Header />
-        <Routes />
+        <div className="container">
+            <Routes />
+        </div>
     </Router>
 );
 
