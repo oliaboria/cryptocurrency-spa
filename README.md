@@ -65,3 +65,22 @@ We expect you to spend 4-6 hours to complete this challenge. However you can do
 the assignment whenever you want within a 24 hour window after you _cloned_ the
 repository. When you're finished send us the url of the _cloned_ repository with
 your code.
+
+## Available Scripts
+
+### `yarn lint`
+
+Runs eslint for js
+
+### `yarn lint:style`
+
+Runs eslint for css and scss
+
+### `yarn format`
+
+Format your code with prettier
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
