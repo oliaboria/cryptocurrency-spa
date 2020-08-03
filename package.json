@@ -26,6 +26,8 @@
         "eslint-plugin-jest": "^23.17.1",
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.20.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
         "stylelint": "^13.6.1",
         "stylelint-config-rational-order": "^0.1.2",
@@ -55,5 +57,14 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": "eslint --fix",
+        "*.{css,scss}": "stylelint --fix"
     }
 }
