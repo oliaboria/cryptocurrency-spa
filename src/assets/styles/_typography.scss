@@ -1,0 +1,12 @@
+/* brand variables */
+
+@mixin h1-heading {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* layout variables */
+%logo-font {
+    @include h1-heading;
+}

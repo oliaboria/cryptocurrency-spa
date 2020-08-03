@@ -26,7 +26,7 @@ const GET_MARKET = gql`
 const Home: React.FC = () => {
     const { loading, data } = useQuery(GET_MARKET);
 
-    return loading ? <p>Loading...</p> : <div>{JSON.stringify(data)}</div>;
+    return loading ? <p>Loading...</p> : <div>{'data'}</div>;
 };
 
 export default Home;

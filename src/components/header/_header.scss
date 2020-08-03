@@ -1,0 +1,33 @@
+@import 'src/assets/styles/style-import';
+
+.header {
+    height: $header-height;
+
+    &-container {
+        @extend .container;
+        display: flex;
+        flex-direction: column;
+
+        min-height: 100%;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .logo {
+        @extend %logo-font;
+        margin-top: 5px;
+
+        margin-bottom: 15px;
+        color: $black;
+        text-decoration: none;
+
+        @include tablet {
+            margin: 0;
+        }
+    }
+}
