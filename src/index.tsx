@@ -1,14 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import {
     ApolloClient,
     HttpLink,
     InMemoryCache,
     ApolloProvider,
 } from '@apollo/client';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './index.css';
+import App from './app.component';
+import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
