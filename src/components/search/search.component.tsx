@@ -13,10 +13,10 @@ type PtopTypes = {
 
 const Search: React.FC<PtopTypes> = (props: PtopTypes) => {
     const { onSubmit } = props;
-    const formRef = useRef(null);
+    const formRef: React.MutableRefObject<any> = useRef();
     const submitForm = () => {
-        const name = formRef.current.value;
-        if (name) {
+        const name = formRef.current?.value;
+        if (name && onSubmit) {
             onSubmit({ variables: { name: `%${name}` } });
         }
     };

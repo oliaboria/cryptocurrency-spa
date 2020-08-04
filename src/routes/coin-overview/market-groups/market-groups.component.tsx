@@ -3,10 +3,11 @@ import React from 'react';
 
 import './_market-groups.scss';
 
+import { MarketType } from '../../../types';
 import Market from '../market';
 
 type PropTypes = {
-    market: [];
+    market: MarketType[];
 };
 
 const MarketGroups: React.FC<PropTypes> = (props: PropTypes) => {
@@ -20,11 +21,13 @@ const MarketGroups: React.FC<PropTypes> = (props: PropTypes) => {
                 return (
                     <div key={key}>
                         <h3 className="group-name">{key}</h3>
-                        {map(group, (item, index) => {
-                            const uniqKey = item.marketSymbol + index;
+                        <div className="grop-content">
+                            {map(group, (item, index) => {
+                                const uniqKey = item.marketSymbol + index;
 
-                            return <Market item={item} key={uniqKey} />;
-                        })}
+                                return <Market item={item} key={uniqKey} />;
+                            })}
+                        </div>
                     </div>
                 );
             })}

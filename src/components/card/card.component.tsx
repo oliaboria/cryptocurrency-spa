@@ -5,7 +5,7 @@ import './_card.scss';
 
 type PropTypes = {
     children?: React.ReactNode;
-    preview: boolean;
+    preview?: boolean;
     additionalClasses?: string;
 };
 

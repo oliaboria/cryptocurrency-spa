@@ -1,4 +1,17 @@
+@import 'src/assets/styles/style-import';
+
 .group-name {
     margin-bottom: 10px;
     font-weight: bold;
+}
+
+.grop-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    @include tablet {
+        flex-direction: row;
+    }
 }

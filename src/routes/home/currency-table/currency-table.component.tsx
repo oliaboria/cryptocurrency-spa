@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import './_currency-table.scss';
 
+import { CurrencyType } from '../../../types';
 import dollarFormat from '../../../utils/dollar-currency-format';
-import { Currency } from '../home.types';
 
 type PropTypes = {
     headers: string[];
-    currency: Currency[];
+    currency: CurrencyType[];
 };
 
 const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
@@ -24,7 +24,7 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                 </tr>
             </thead>
             <tbody>
-                {currency.map((item: Currency) => {
+                {currency.map((item: CurrencyType) => {
                     const {
                         assetName,
                         marketCap,
