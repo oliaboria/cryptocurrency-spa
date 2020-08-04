@@ -5,8 +5,10 @@
     "dependencies": {
         "@apollo/client": "^3.1.1",
         "@types/classnames": "^2.2.10",
+        "@types/lodash": "^4.14.158",
         "classnames": "^2.2.6",
         "graphql": "^15.3.0",
+        "lodash": "^4.17.19",
         "node-sass": "^4.14.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",

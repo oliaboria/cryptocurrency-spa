@@ -11,7 +11,7 @@ import Spinner from '../../components/spinner';
 import CurrencyTable from './currency-table';
 import { GET_MARKET } from './home.queries';
 
-const headers = ['Name', 'Pair', 'Market Cap', 'Average Last Price'];
+const headers = ['Name', 'Symbol', 'Market Cap', 'Total Supply'];
 const limits = {
     '10': 10,
     '15': 15,
@@ -19,7 +19,7 @@ const limits = {
 };
 
 const Home: React.FC = () => {
-    const [limit, setLimit] = useState(25);
+    const [limit, setLimit] = useState(10);
     const { loading, data, error } = useQuery(GET_MARKET, {
         variables: { limit },
     });

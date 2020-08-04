@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-/* Can't find in API how to filter by $
-    also got 413 Payload ti large when limit is 50
+/* Can't find in API how to filter by USD that's why can't show pair column. Show assetSymbol instead
+    also got 413 Payload too large when limit is 50 because api send to mucjh data instead of 50
 */
 export const GET_MARKET = gql`
     query getMarket($limit: Int) {
@@ -12,12 +12,9 @@ export const GET_MARKET = gql`
             id
             assetName
             marketCap
-            markets {
-                baseSymbol
-                ticker {
-                    lastPrice
-                }
-            }
+            totalSupply
+            assetType
+            assetSymbol
         }
     }
 `;

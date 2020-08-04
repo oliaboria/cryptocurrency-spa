@@ -2,6 +2,7 @@ import React from 'react';
 
 import './_currency-table.scss';
 
+import dollarFormat from '../../../utils/dollar-currency-format';
 import { Currency } from '../home.types';
 
 type PropTypes = {
@@ -23,15 +24,20 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
             </thead>
             <tbody>
                 {currency.map((item: Currency) => {
-                    const { assetName, marketCap, markets, id } = item;
-                    // const {marketSymbol, ticker} = markets;
+                    const {
+                        assetName,
+                        marketCap,
+                        id,
+                        totalSupply,
+                        assetSymbol,
+                    } = item;
 
                     return (
                         <tr key={id}>
                             <td>{assetName}</td>
-                            <td>pair</td>
-                            <td>{marketCap}</td>
-                            <td>price</td>
+                            <td>{assetSymbol}</td>
+                            <td>{dollarFormat(marketCap)}</td>
+                            <td>{dollarFormat(totalSupply)}</td>
                         </tr>
                     );
                 })}
