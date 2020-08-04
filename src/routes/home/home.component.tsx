@@ -6,6 +6,7 @@ import Header from '../../components/header';
 import Pagination from '../../components/pagination';
 import SomethingWentWrong from '../../components/something-went-wrong';
 import Spinner from '../../components/spinner';
+import { FetchCoinsByParamsType, FetchCoinsParamsType } from '../../types';
 
 import CurrencyTable from './currency-table';
 import GET_COINS from './home.queries';
@@ -20,36 +21,57 @@ const limits = {
 const Home: React.FC = () => {
     const [limit, setLimit] = useState(10);
 
-    const [fetchMarket, { loading, data, error }] = useLazyQuery(GET_COINS, {
-        variables: { limit },
-    });
+    const [fetchCoins, { loading, data, error }] = useLazyQuery(GET_COINS);
+    const isEmptyState = data?.assets.length === 0;
+
+    const fetchCoinsByParams: FetchCoinsByParamsType = (
+        params?: FetchCoinsParamsType,
+    ) => {
+        const defultParams = {
+            variables: { limit },
+        };
+        const resultParams = {
+            variables: {
+                ...defultParams.variables,
+                ...params?.variables,
+            },
+        };
+
+        fetchCoins(resultParams);
+    };
 
     useEffect(() => {
-        fetchMarket();
-    }, [fetchMarket]);
+        fetchCoinsByParams();
+    }, [fetchCoins, limit]);
 
     return (
         <>
-            <Header onSubmit={fetchMarket} />
+            <Header onSubmit={fetchCoinsByParams} />
 
             {loading && <Spinner />}
 
             {!loading && !error && (
-                <Card>
-                    <div className="scrollable table-wrapper">
-                        <CurrencyTable
-                            headers={headers}
-                            currency={data?.assets}
-                        />
-                    </div>
-                    <div className="pagination">
-                        <Pagination
-                            pages={limits}
-                            currentLimit={limit}
-                            changeLimit={setLimit}
-                        />
-                    </div>
-                </Card>
+                <>
+                    {isEmptyState ? (
+                        <div>No results</div>
+                    ) : (
+                        <Card>
+                            <div className="scrollable table-wrapper">
+                                <CurrencyTable
+                                    headers={headers}
+                                    currency={data?.assets}
+                                />
+                            </div>
+                            <div className="pagination">
+                                <Pagination
+                                    pages={limits}
+                                    currentLimit={limit}
+                                    changeLimit={setLimit}
+                                />
+                            </div>
+                        </Card>
+                    )}
+                </>
             )}
 
             {error && <SomethingWentWrong />}

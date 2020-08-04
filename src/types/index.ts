@@ -20,3 +20,12 @@ export type CurrencyType = {
     totalSupply: number;
     markets: MarketType[];
 };
+
+export type FetchCoinsParamsType = {
+    variables?: {
+        limit?: number;
+        name?: string;
+    };
+};
+
+export type FetchCoinsByParamsType = (params?: FetchCoinsParamsType) => void;

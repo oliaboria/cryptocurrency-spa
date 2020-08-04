@@ -5,7 +5,7 @@ import { gql } from '@apollo/client';
 */
 
 const GET_COINS = gql`
-    query GgetCoins($limit: Int, $name: String) {
+    query getCoins($limit: Int, $name: String) {
         assets(
             sort: [{ marketCapRank: DESC }]
             page: { skip: 0, limit: $limit }

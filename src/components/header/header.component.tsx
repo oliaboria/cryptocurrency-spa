@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { FetchCoinsByParamsType } from '../../types';
 import Search from '../search';
 
 type PtopTypes = {
-    onSubmit?: () => void;
+    onSubmit: FetchCoinsByParamsType;
 };
 
 const Header: React.FC<PtopTypes> = (props: PtopTypes) => {
