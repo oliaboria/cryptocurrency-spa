@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { CurrencyType } from '../../../types';
 import dollarFormat from '../../../utils/dollar-currency-format';
@@ -11,6 +11,11 @@ type PropTypes = {
 
 const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
     const { headers, currency } = props;
+    const history = useHistory();
+
+    const onRowClick = (symbol: string) => {
+        history.push(`/coin/${symbol}`);
+    };
 
     return currency ? (
         <table className="currency-table">
@@ -32,13 +37,11 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                     } = item;
 
                     return (
-                        <tr key={id}>
-                            <Link to={`/coin/${assetSymbol}`}>
-                                <td>{assetName}</td>
-                                <td>{assetSymbol}</td>
-                                <td>{dollarFormat(marketCap)}</td>
-                                <td>{dollarFormat(totalSupply)}</td>
-                            </Link>
+                        <tr key={id} onClick={() => onRowClick(assetSymbol)}>
+                            <td>{assetName}</td>
+                            <td>{assetSymbol}</td>
+                            <td>{dollarFormat(marketCap)}</td>
+                            <td>{dollarFormat(totalSupply)}</td>
                         </tr>
                     );
                 })}
