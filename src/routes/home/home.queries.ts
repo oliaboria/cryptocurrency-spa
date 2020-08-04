@@ -4,8 +4,8 @@ import { gql } from '@apollo/client';
     also got 413 Payload too large when limit is 50 because api send to mucjh data instead of 50
 */
 
-const GET_MARKET = gql`
-    query searchByName($limit: Int, $name: String) {
+const GET_COINS = gql`
+    query GgetCoins($limit: Int, $name: String) {
         assets(
             sort: [{ marketCapRank: DESC }]
             page: { skip: 0, limit: $limit }
@@ -21,4 +21,4 @@ const GET_MARKET = gql`
     }
 `;
 
-export default GET_MARKET;
+export default GET_COINS;

@@ -5,7 +5,7 @@ import './_header.scss';
 import Search from '../search';
 
 type PtopTypes = {
-    onSubmit: () => void;
+    onSubmit?: () => void;
 };
 
 const Header: React.FC<PtopTypes> = (props: PtopTypes) => {

@@ -8,7 +8,7 @@ type Params = {
 };
 
 type PtopTypes = {
-    onSubmit: (params: Params) => void;
+    onSubmit?: (params: Params) => void;
 };
 
 const Search: React.FC<PtopTypes> = (props: PtopTypes) => {

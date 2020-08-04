@@ -34,14 +34,14 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                     } = item;
 
                     return (
-                        <Link to={`/coin/${id}`} key={id}>
-                            <tr>
+                        <tr key={id}>
+                            <Link to={`/coin/${assetSymbol}`}>
                                 <td>{assetName}</td>
                                 <td>{assetSymbol}</td>
                                 <td>{dollarFormat(marketCap)}</td>
                                 <td>{dollarFormat(totalSupply)}</td>
-                            </tr>
-                        </Link>
+                            </Link>
+                        </tr>
                     );
                 })}
             </tbody>

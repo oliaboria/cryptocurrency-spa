@@ -1,0 +1,32 @@
+@import 'src/assets/styles/style-import';
+
+.market-card {
+    .card-name {
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .row,
+    .column {
+        display: flex;
+    }
+
+    .main-row {
+        margin-bottom: 15px;
+        border-bottom: 1px solid $market-card-row-border;
+    }
+
+    .column {
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25%;
+    }
+
+    .symbol-section {
+        margin-right: 80px;
+    }
+
+    .text {
+        margin-bottom: 7px;
+    }
+}
