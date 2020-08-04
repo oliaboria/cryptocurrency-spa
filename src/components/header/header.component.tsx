@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './_header.scss';
-
 import Search from '../search';
 
 type PtopTypes = {

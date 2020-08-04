@@ -1,8 +1,6 @@
 import { groupBy, map } from 'lodash';
 import React from 'react';
 
-import './_market-groups.scss';
-
 import { MarketType } from '../../../types';
 import Market from '../market';
 

@@ -1,8 +1,6 @@
 import { debounce } from 'lodash';
 import React, { useRef } from 'react';
 
-import './_search.scss';
-
 type Params = {
     [key: string]: any;
 };

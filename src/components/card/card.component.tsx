@@ -1,8 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import './_card.scss';
-
 type PropTypes = {
     children?: React.ReactNode;
     preview?: boolean;

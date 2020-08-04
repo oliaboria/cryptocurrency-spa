@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './_market.scss';
-
 import Card from '../../../components/card';
 import calcPercent from '../../../utils/calc-percent';
 import getMarketPair from '../../../utils/get-market-pair';

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './_currency-table.scss';
-
 import { CurrencyType } from '../../../types';
 import dollarFormat from '../../../utils/dollar-currency-format';
 

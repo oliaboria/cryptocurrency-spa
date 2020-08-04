@@ -1,8 +1,6 @@
 import { useLazyQuery } from '@apollo/client';
 import React, { useState, useEffect } from 'react';
 
-import './_home.scss';
-
 import Card from '../../components/card';
 import Header from '../../components/header';
 import Pagination from '../../components/pagination';
@@ -28,7 +26,7 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         fetchMarket();
-    }, []);
+    }, [fetchMarket]);
 
     return (
         <>
