@@ -9,9 +9,25 @@
         display: flex;
     }
 
+    .sub-text {
+        color: $color-grey-400;
+    }
+
     .main-row {
         margin-bottom: 15px;
         border-bottom: 1px solid $market-card-row-border;
+
+        .main-text {
+            color: $market-card-pair-txt-color;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .price-row {
+        .sub-text {
+            @extend %market-sub-text;
+        }
     }
 
     .column {
@@ -22,6 +38,14 @@
 
     .symbol-section {
         margin-right: 80px;
+    }
+
+    .positive {
+        color: $market-card-percent-green-color;
+    }
+
+    .negative {
+        color: $market-card-percent-red-color;
     }
 
     .text {

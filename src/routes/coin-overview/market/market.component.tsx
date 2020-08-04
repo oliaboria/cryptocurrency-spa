@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 
 import Card from '../../../components/card';
@@ -18,40 +19,46 @@ const Market: React.FC<PropTypes> = (props: PropTypes) => {
                 <div className="card-name">{exchangeSymbol}</div>
                 <div className="main-row row">
                     <div className="symbol-section column">
-                        <div className="text">
+                        <div className="text main-text">
                             {getMarketPair(marketSymbol)}
                         </div>
-                        <div className="text">Pair</div>
+                        <div className="text sub-text">Pair</div>
                     </div>
                     <div className="column">
-                        <div className="text">{`${multiple(
+                        <div className="text main-text">{`${multiple(
                             ticker.lastPrice,
                         )}.${baseSymbol}`}</div>
-                        <div className="text">Price</div>
+                        <div className="text sub-text">Price</div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="price-row row">
                     <div className="column">
                         <div>{`${multiple(
                             ticker.lastPrice,
                         )}.${baseSymbol}`}</div>
-                        <div>Last Price</div>
+                        <div className="sub-text">Last Price</div>
                     </div>
                     <div className="column">
-                        <div>{calcPercent(ticker.percentChange)}</div>
-                        <div>24 h Change</div>
+                        <div
+                            className={classnames({
+                                positive: ticker.percentChange > 0,
+                                negative: ticker.percentChange < 0,
+                            })}>
+                            {calcPercent(ticker.percentChange)}
+                        </div>
+                        <div className="sub-text">24 h Change</div>
                     </div>
                     <div className="column">
                         <div>{`${multiple(
                             ticker.lastPrice,
                         )}.${baseSymbol}`}</div>
-                        <div>24 h Low</div>
+                        <div className="sub-text">24 h Low</div>
                     </div>
                     <div className="column">
                         <div>{`${multiple(
                             ticker.highPrice,
                         )}.${baseSymbol}`}</div>
-                        <div>24 h High</div>
+                        <div className="sub-text">24 h High</div>
                     </div>
                 </div>
             </div>
