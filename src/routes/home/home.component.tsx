@@ -22,6 +22,7 @@ const Home: React.FC = () => {
     const [limit, setLimit] = useState(10);
 
     const [fetchCoins, { loading, data, error }] = useLazyQuery(GET_COINS);
+    const isEmptyState = data?.assets.length === 0;
 
     const fetchCoinsByParams: FetchCoinsByParamsType = (
         params?: FetchCoinsParamsType,
@@ -50,21 +51,27 @@ const Home: React.FC = () => {
             {loading && <Spinner />}
 
             {!loading && !error && (
-                <Card>
-                    <div className="scrollable table-wrapper">
-                        <CurrencyTable
-                            headers={headers}
-                            currency={data?.assets}
-                        />
-                    </div>
-                    <div className="pagination">
-                        <Pagination
-                            pages={limits}
-                            currentLimit={limit}
-                            changeLimit={setLimit}
-                        />
-                    </div>
-                </Card>
+                <>
+                    {isEmptyState ? (
+                        <div>No results</div>
+                    ) : (
+                        <Card>
+                            <div className="scrollable table-wrapper">
+                                <CurrencyTable
+                                    headers={headers}
+                                    currency={data?.assets}
+                                />
+                            </div>
+                            <div className="pagination">
+                                <Pagination
+                                    pages={limits}
+                                    currentLimit={limit}
+                                    changeLimit={setLimit}
+                                />
+                            </div>
+                        </Card>
+                    )}
+                </>
             )}
 
             {error && <SomethingWentWrong />}
