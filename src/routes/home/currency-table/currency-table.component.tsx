@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './_currency-table.scss';
 
@@ -33,12 +34,14 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                     } = item;
 
                     return (
-                        <tr key={id}>
-                            <td>{assetName}</td>
-                            <td>{assetSymbol}</td>
-                            <td>{dollarFormat(marketCap)}</td>
-                            <td>{dollarFormat(totalSupply)}</td>
-                        </tr>
+                        <Link to={`/coin/${id}`} key={id}>
+                            <tr>
+                                <td>{assetName}</td>
+                                <td>{assetSymbol}</td>
+                                <td>{dollarFormat(marketCap)}</td>
+                                <td>{dollarFormat(totalSupply)}</td>
+                            </tr>
+                        </Link>
                     );
                 })}
             </tbody>

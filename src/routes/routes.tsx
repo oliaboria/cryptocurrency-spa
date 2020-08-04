@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-import CoinOverview from './coinOverview';
+import CoinOverview from './coin-overview';
 import Home from './home';
 
 const Routes: React.FC = () => {
