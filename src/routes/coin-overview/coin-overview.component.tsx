@@ -18,7 +18,7 @@ const CoinOverview: React.FC = () => {
 
     return (
         <>
-            <Header />
+            <Header onSubmit={() => null} />
 
             {loading && <Spinner />}
 

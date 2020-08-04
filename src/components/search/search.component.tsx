@@ -1,26 +1,24 @@
 import { debounce } from 'lodash';
-import React, { useRef } from 'react';
+import React, { useRef, SyntheticEvent } from 'react';
 
-type Params = {
-    [key: string]: any;
-};
+import { FetchCoinsByParamsType } from '../../types';
 
 type PtopTypes = {
-    onSubmit?: (params: Params) => void;
+    onSubmit: FetchCoinsByParamsType;
 };
 
 const Search: React.FC<PtopTypes> = (props: PtopTypes) => {
     const { onSubmit } = props;
     const formRef: React.MutableRefObject<any> = useRef();
-    const submitForm = () => {
+    const submitForm = (e: SyntheticEvent) => {
+        e.preventDefault();
         const name = formRef.current?.value;
-        if (name && onSubmit) {
-            onSubmit({ variables: { name: `%${name}` } });
-        }
+        const params = name && { variables: { name: `%${name}` } };
+        onSubmit(params);
     };
 
     return (
-        <form className="search">
+        <form className="search" onSubmit={submitForm}>
             <label>
                 <input
                     ref={formRef}

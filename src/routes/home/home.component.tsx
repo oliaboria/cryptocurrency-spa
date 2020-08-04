@@ -6,6 +6,7 @@ import Header from '../../components/header';
 import Pagination from '../../components/pagination';
 import SomethingWentWrong from '../../components/something-went-wrong';
 import Spinner from '../../components/spinner';
+import { FetchCoinsByParamsType, FetchCoinsParamsType } from '../../types';
 
 import CurrencyTable from './currency-table';
 import GET_COINS from './home.queries';
@@ -20,17 +21,31 @@ const limits = {
 const Home: React.FC = () => {
     const [limit, setLimit] = useState(10);
 
-    const [fetchMarket, { loading, data, error }] = useLazyQuery(GET_COINS, {
-        variables: { limit },
-    });
+    const [fetchCoins, { loading, data, error }] = useLazyQuery(GET_COINS);
+
+    const fetchCoinsByParams: FetchCoinsByParamsType = (
+        params?: FetchCoinsParamsType,
+    ) => {
+        const defultParams = {
+            variables: { limit },
+        };
+        const resultParams = {
+            variables: {
+                ...defultParams.variables,
+                ...params?.variables,
+            },
+        };
+
+        fetchCoins(resultParams);
+    };
 
     useEffect(() => {
-        fetchMarket();
-    }, [fetchMarket]);
+        fetchCoinsByParams();
+    }, [fetchCoins, limit]);
 
     return (
         <>
-            <Header onSubmit={fetchMarket} />
+            <Header onSubmit={fetchCoinsByParams} />
 
             {loading && <Spinner />}
 
