@@ -13,7 +13,7 @@ type PropTypes = {
 const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
     const { headers, currency } = props;
 
-    return (
+    return currency ? (
         <table className="currency-table">
             <thead>
                 <tr>
@@ -43,7 +43,7 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                 })}
             </tbody>
         </table>
-    );
+    ) : null;
 };
 
 export default CurrencyTable;

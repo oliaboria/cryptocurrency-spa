@@ -1,4 +1,4 @@
-const dollarFormat = (value: number) => {
+const dollarFormat = (value: number): string => {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
