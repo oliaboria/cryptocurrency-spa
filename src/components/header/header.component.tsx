@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Search from '../search';
 
@@ -12,9 +13,9 @@ const Header: React.FC<PtopTypes> = (props: PtopTypes) => {
     return (
         <header className="header">
             <div className="header-container">
-                <a href="/" className="logo">
+                <Link to="/" className="logo">
                     Cryptocurrency Market
-                </a>
+                </Link>
                 <Search onSubmit={onSubmit} />
             </div>
         </header>

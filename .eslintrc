@@ -44,6 +44,7 @@
             }
         ],
         "react/jsx-boolean-value": ["error", "never"],
+        "class-methods-use-this": ["off"],
         "prettier/prettier": ["error"]
     },
     "overrides": [
