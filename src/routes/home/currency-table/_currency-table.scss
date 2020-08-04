@@ -3,7 +3,8 @@
 .currency-table {
     margin: 0 auto;
 
-    th, td {
+    th,
+    td {
         min-width: 292px;
         padding: 10px 15px;
         text-align: left;
@@ -20,6 +21,4 @@
     tr {
         border-bottom: 1px solid $table-row-border-color;
     }
-
-
 }

@@ -23,5 +23,6 @@ export type Currency = {
     assetSymbol: string;
     id: string;
     marketCap: number;
+    totalSupply: number;
     markets: Market[];
 };
