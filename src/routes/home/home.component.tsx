@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
-import classnames from 'classnames';
 import React, { useState } from 'react';
 
 import './_home.scss';
 
 import Card from '../../components/card';
+import Pagination from '../../components/pagination';
 import SomethingWentWrong from '../../components/something-went-wrong';
 import Spinner from '../../components/spinner';
 
@@ -24,10 +24,6 @@ const Home: React.FC = () => {
         variables: { limit },
     });
 
-    const changeLimit = (newLimit: number) => {
-        setLimit(newLimit);
-    };
-
     return (
         <>
             {loading && <Spinner />}
@@ -41,20 +37,11 @@ const Home: React.FC = () => {
                         />
                     </div>
                     <div className="pagination">
-                        <div>View</div>
-                        {Object.keys(limits).map((keyStr) => {
-                            const currentLimit = limits[keyStr];
-                            return (
-                                <div
-                                    key={keyStr}
-                                    className={classnames('clickable', {
-                                        underline: limit === currentLimit,
-                                    })}
-                                    onClick={() => changeLimit(currentLimit)}>
-                                    {keyStr}
-                                </div>
-                            );
-                        })}
+                        <Pagination
+                            pages={limits}
+                            currentLimit={limit}
+                            changeLimit={setLimit}
+                        />
                     </div>
                 </Card>
             )}
