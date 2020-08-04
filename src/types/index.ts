@@ -1,28 +1,22 @@
-export interface CurrencyAPI {
-    data: {
-        assets: Currency[];
-    };
-}
-
-export type Ticker = {
+export type TickerType = {
     highPrice: string;
     lastPrice: string;
     lowPrice: string;
     percentChange: string;
 };
 
-export type Market = {
+export type MarketType = {
     baseSymbol: string;
     exchangeSymbol: string;
     marketSymbol: string;
-    ticker: Ticker;
+    ticker: TickerType;
 };
 
-export type Currency = {
+export type CurrencyType = {
     assetName: string;
     assetSymbol: string;
     id: string;
     marketCap: number;
     totalSupply: number;
-    markets: Market[];
+    markets: MarketType[];
 };

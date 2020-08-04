@@ -1,5 +1,3 @@
-@import 'src/assets/styles/style-import';
-
 .currency-table {
     margin: 0 auto;
 
@@ -12,6 +10,7 @@
 
     td {
         padding: 15px;
+        color: $link-txt-color;
     }
 
     th {

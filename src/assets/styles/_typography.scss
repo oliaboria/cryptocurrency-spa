@@ -12,6 +12,11 @@
     line-height: 24px;
 }
 
+@mixin sub-text {
+    font-size: 12px;
+    line-height: 18px;
+}
+
 /* layout variables */
 %logo-font {
     @include h1-heading;
@@ -19,4 +24,8 @@
 
 %something-went-wrong {
     @include h2-heading;
+}
+
+%market-sub-text {
+    @include sub-text;
 }

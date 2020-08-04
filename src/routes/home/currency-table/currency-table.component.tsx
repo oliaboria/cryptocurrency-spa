@@ -1,17 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import './_currency-table.scss';
-
+import { CurrencyType } from '../../../types';
 import dollarFormat from '../../../utils/dollar-currency-format';
-import { Currency } from '../home.types';
 
 type PropTypes = {
     headers: string[];
-    currency: Currency[];
+    currency: CurrencyType[];
 };
 
 const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
     const { headers, currency } = props;
+    const history = useHistory();
+
+    const onRowClick = (symbol: string) => {
+        history.push(`/coin/${symbol}`);
+    };
 
     return currency ? (
         <table className="currency-table">
@@ -23,7 +27,7 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                 </tr>
             </thead>
             <tbody>
-                {currency.map((item: Currency) => {
+                {currency.map((item: CurrencyType) => {
                     const {
                         assetName,
                         marketCap,
@@ -33,7 +37,7 @@ const CurrencyTable: React.FC<PropTypes> = (props: PropTypes) => {
                     } = item;
 
                     return (
-                        <tr key={id}>
+                        <tr key={id} onClick={() => onRowClick(assetSymbol)}>
                             <td>{assetName}</td>
                             <td>{assetSymbol}</td>
                             <td>{dollarFormat(marketCap)}</td>

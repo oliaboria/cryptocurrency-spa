@@ -2,14 +2,22 @@ $black: #000000;
 $wight: #ffffff;
 
 $color-grey-100: #e2e3e4;
+$color-grey-400: #9fa3a6;
 $color-grey-700: #4e545b;
 
 $color-blue-400: #0000cd;
 $color-blue-600: #000080;
 
+$color-green-300: green;
+
+$color-red-300: #e60000;
+
+
 /* layout variables */
 
 $header-txt-color: $black;
+
+$link-txt-color: $black;
 
 $card-border-color: $color-grey-100;
 $card-shadow-color: $color-grey-700;
@@ -22,3 +30,8 @@ $table-row-border-color: $color-grey-100;
 $clickable-color: $color-blue-400;
 
 $spinner-color: $color-blue-600;
+
+$market-card-row-border: $color-grey-100;
+$market-card-pair-txt-color: $color-blue-600;
+$market-card-percent-green-color: $color-green-300;
+$market-card-percent-red-color: $color-red-300;
